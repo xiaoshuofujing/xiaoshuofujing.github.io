@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>芙憬工作室</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="6c651e1f-825a-475d-89c2-47d0d0ca356b" type="text/javascript" async></script>
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-949C412C7D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-949C412C7D');
+</script>
+	<style>
+        /* === CSS Reset/優化 - 確保盒子模型計算更直觀 === */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* === 顏色變數，與導航欄保持一致 === */
+        :root {
+            --primary-color: #94B5E8; /* 主要藍色 (連結和標題) */
+            --secondary-color: #A5B6E7; /* 標題柔和藍色 */
+            --background-start: #FFD1DC; /* 粉色 */
+            --background-end: #ADD8E6; /* 淺藍色 */
+            --text-color: #333;
+            --light-text-color: #fff;
+            --card-bg: rgba(255, 255, 255, 0.9); /* 卡片背景半透明 */
+        }
+
+        body {
+            min-height: 100vh;
+            width: 100%;
+            background: linear-gradient(135deg, var(--background-start) 0%, var(--background-end) 100%);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        }
+
+        /* === 導航列樣式 - 保持不變 === */
+        .apple-navbar {
+            background-color: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 48px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1000px;
+            padding: 0 20px;
+            color: var(--primary-color);
+        }
+
+        .nav-left, .nav-right {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* 連結和摘要的樣式 */
+        .nav-right a, .nav-right summary {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 400;
+            padding: 0 10px;
+            display: block;
+            height: 48px;
+            line-height: 48px;
+            transition: color 0.3s;
+        }
+
+        .nav-right a:hover, .nav-right summary:hover {
+            color: var(--text-color); /* 懸停時變深 */
+            opacity: 0.8;
+        }
+
+        .nav-brand {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        /* === 主要內容區域 (用於推開導航欄) - 保持不變 === */
+        .content {
+            padding-top: 80px;
+            padding-bottom: 50px;
+            color: var(--primary-color);
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .content h1 {
+            color: var(--secondary-color);
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* === 作品清單樣式 (保持不變) === */
+        .portfolio-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .portfolio-item {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+            text-align: left;
+        }
+
+        .portfolio-item:hover {
+            background-color: rgba(255, 255, 255, 1);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .portfolio-info {
+            flex-grow: 1; 
+            padding-right: 30px;
+        }
+
+        .portfolio-info h3 {
+            color: var(--text-color);
+            margin-bottom: 5px;
+            font-size: 1.5em;
+        }
+
+        .portfolio-info p {
+            font-size: 1em;
+            color: var(--text-color);
+            opacity: 0.7;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-tag {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--light-text-color);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .portfolio-link {
+            flex-shrink: 0;
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            white-space: nowrap; 
+        }
+
+        .portfolio-link:hover {
+            background-color: #6A90D8;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="apple-navbar">
+        <ul class="nav-list">
+            <li class="nav-left">
+                <a href="#" class="nav-brand" title="芙憬工作室首頁">芙憬工作室</a>
+            </li>
+            
+            <ul class="nav-right">
+                <li><a href="https://xiaoshuofujing.github.io/Fujing-reader/">作品集</a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61582508597055&locale=zh_TW">Facebook</a></li>
+                <li><a href="https://www.youtube.com/channel/UCvO3T2AUpCCSPCUrr3-m91w">Youtube</a></li>
+                <li><a href="https://www.instagram.com/fujing.murong/">Instagram</a></li>
+            </ul>
+        </ul>
+    </nav>
+    
+    <div class="content">
+        <h1>芙憬工作室</h1>
+        <div class="portfolio-list" id="portfolioList">
+            </div>
+    </div>
+
+
+
+
+
+      
+</body>
+</html>
