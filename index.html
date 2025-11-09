@@ -1,221 +1,405 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
-	<meta charset="utf-8">
-	<title>芙憬工作室</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="6c651e1f-825a-475d-89c2-47d0d0ca356b" type="text/javascript" async></script>
-	<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-949C412C7D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-949C412C7D');
-</script>
-	<style>
-        /* === CSS Reset/優化 - 確保盒子模型計算更直觀 === */
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>芙憬工作室 - 創意設計與內容創作</title>
+    <meta name="description" content="芙憬工作室正在尋找有才華的創作者加入我們的團隊！">
+    <meta property="og:title" content="芙憬工作室 - 誠徵夥伴">
+    <meta property="og:description" content="加入我們，一起創造精彩內容">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="6c651e1f-825a-475d-89c2-47d0d0ca356b" async></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-949C412C7D"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-949C412C7D');
+    </script>
+    <style>
+        /* 保留原樣式變數與基礎設定 */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-
-        /* === 顏色變數，與導航欄保持一致 === */
+        
         :root {
-            --primary-color: #94B5E8; /* 主要藍色 (連結和標題) */
-            --secondary-color: #A5B6E7; /* 標題柔和藍色 */
-            --background-start: #FFD1DC; /* 粉色 */
-            --background-end: #ADD8E6; /* 淺藍色 */
+            --primary-color: #94B5E8;
+            --secondary-color: #A5B6E7;
+            --background-start: #FFD1DC;
+            --background-end: #ADD8E6;
             --text-color: #333;
             --light-text-color: #fff;
-            --card-bg: rgba(255, 255, 255, 0.9); /* 卡片背景半透明 */
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --hover-bg: rgba(255, 255, 255, 0.95);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             min-height: 100vh;
-            width: 100%;
             background: linear-gradient(135deg, var(--background-start) 0%, var(--background-end) 100%);
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+            background-attachment: fixed;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
         }
 
-        /* === 導航列樣式 - 保持不變 === */
+        /* === 導航列樣式 === */
         .apple-navbar {
             background-color: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px) saturate(180%);
             position: fixed;
             top: 0;
-            left: 0;
             width: 100%;
             z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             height: 48px;
-            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
 
-        .nav-list {
-            list-style: none;
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
             display: flex;
             justify-content: space-between;
-            width: 100%;
-            max-width: 1000px;
-            padding: 0 20px;
-            color: var(--primary-color);
-        }
-
-        .nav-left, .nav-right {
-            list-style: none;
-            display: flex;
             align-items: center;
-        }
-        
-        /* 連結和摘要的樣式 */
-        .nav-right a, .nav-right summary {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 400;
-            padding: 0 10px;
-            display: block;
-            height: 48px;
-            line-height: 48px;
-            transition: color 0.3s;
-        }
-
-        .nav-right a:hover, .nav-right summary:hover {
-            color: var(--text-color); /* 懸停時變深 */
-            opacity: 0.8;
+            height: 100%;
         }
 
         .nav-brand {
             font-size: 20px;
             font-weight: 600;
             color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
         }
-        
-        /* === 主要內容區域 (用於推開導航欄) - 保持不變 === */
-        .content {
-            padding-top: 80px;
-            padding-bottom: 50px;
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-menu a {
             color: var(--primary-color);
-            text-align: center;
-            max-width: 900px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 400;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--text-color);
+        }
+
+        /* === 主要內容區域 === */
+        .content {
+            padding-top: 100px;
+            padding-bottom: 80px;
+            max-width: 800px;
             margin: 0 auto;
             padding-left: 20px;
             padding-right: 20px;
         }
 
-        .content h1 {
-            color: var(--secondary-color);
-            margin-bottom: 40px;
-            font-size: 2.5em;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease;
         }
-        
-        /* === 作品清單樣式 (保持不變) === */
-        .portfolio-list {
+
+        .page-header h1 {
+            color: var(--secondary-color);
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-header p {
+            color: var(--primary-color);
+            font-size: 1.2em;
+            opacity: 0.8;
+        }
+
+        /* === 招聘區塊樣式 === */
+        .recruitment-card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            padding: 40px;
+            text-align: center;
+            animation: fadeInUp 0.8s ease 0.2s both;
+            backdrop-filter: blur(5px);
+        }
+
+        .recruitment-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5em;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .recruitment-title {
+            color: var(--text-color);
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .recruitment-description {
+            font-size: 1.1em;
+            color: var(--text-color);
+            opacity: 0.85;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .position-list {
             display: flex;
             flex-direction: column;
             gap: 15px;
-        }
-        
-        .portfolio-item {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+            margin: 30px 0;
             text-align: left;
         }
 
-        .portfolio-item:hover {
-            background-color: rgba(255, 255, 255, 1);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        .position-item {
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .portfolio-info {
-            flex-grow: 1; 
-            padding-right: 30px;
+        .position-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
-        .portfolio-info h3 {
+        .position-name {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+
+        .position-requirements {
+            font-size: 0.95em;
             color: var(--text-color);
-            margin-bottom: 5px;
-            font-size: 1.5em;
+            opacity: 0.8;
+            line-height: 1.6;
         }
 
-        .portfolio-info p {
-            font-size: 1em;
-            color: var(--text-color);
-            opacity: 0.7;
-            margin-bottom: 10px;
-        }
-
-        .portfolio-tag {
+        /* === 主要行動按鈕 === */
+        .cta-button {
             display: inline-block;
-            background-color: var(--secondary-color);
-            color: var(--light-text-color);
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.85em;
-            font-weight: 500;
-        }
-
-        .portfolio-link {
-            flex-shrink: 0;
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             color: var(--light-text-color);
             text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 8px;
+            padding: 16px 45px;
+            border-radius: 30px;
+            font-size: 1.1em;
             font-weight: 600;
-            transition: background-color 0.3s;
-            white-space: nowrap; 
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
         }
 
-        .portfolio-link:hover {
-            background-color: #6A90D8;
+        .cta-button:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+            filter: brightness(1.1);
+        }
+
+        .cta-button:active {
+            transform: translateY(0) scale(1);
+        }
+
+        .cta-button::after {
+            content: '→';
+            margin-left: 8px;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover::after {
+            transform: translateX(4px);
+        }
+
+        .form-note {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: var(--primary-color);
+            opacity: 0.7;
+        }
+
+        /* === 頁尾樣式 === */
+        footer {
+            background-color: rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 0.9em;
+        }
+
+        /* === 響應式設計 === */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.2em;
+            }
+            
+            .recruitment-card {
+                padding: 30px 20px;
+            }
+            
+            .recruitment-title {
+                font-size: 1.6em;
+            }
+            
+            .cta-button {
+                padding: 14px 30px;
+                font-size: 1em;
+            }
+        }
+
+        /* === 動畫效果 === */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 <body>
-
-    <nav class="apple-navbar">
-        <ul class="nav-list">
-            <li class="nav-left">
-                <a href="#" class="nav-brand" title="芙憬工作室首頁">芙憬工作室</a>
-            </li>
-            
-            <ul class="nav-right">
-                <li><a href="https://xiaoshuofujing.github.io/Fujing-reader/">作品集</a></li>
-                <li><a href="https://www.facebook.com/profile.php?id=61582508597055&locale=zh_TW">Facebook</a></li>
-                <li><a href="https://www.youtube.com/channel/UCvO3T2AUpCCSPCUrr3-m91w">Youtube</a></li>
-                <li><a href="https://www.instagram.com/fujing.murong/">Instagram</a></li>
+    <!-- 導航列 -->
+    <nav class="apple-navbar" role="navigation" aria-label="主要導航">
+        <div class="nav-container">
+            <a href="#" class="nav-brand" title="芙憬工作室首頁">芙憬工作室</a>
+            <ul class="nav-menu">
+                <li><a href="#recruit">加入我們</a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61582508597055" target="_blank" rel="noopener">Facebook</a></li>
+                <li><a href="https://www.youtube.com/channel/UCvO3T2AUpCCSPCUrr3-m91w" target="_blank" rel="noopener">YouTube</a></li>
+                <li><a href="https://www.instagram.com/fujing.murong/" target="_blank" rel="noopener">Instagram</a></li>
             </ul>
-        </ul>
+        </div>
     </nav>
-    
-    <div class="content">
-        <h1>芙憬工作室</h1>
-        <div class="portfolio-list" id="portfolioList">
+
+    <!-- 主要內容：招聘區塊 -->
+    <main class="content">
+        <header class="page-header">
+            <h1>加入芙憬工作室</h1>
+            <p>與我們一起創造精彩內容</p>
+        </header>
+
+        <section class="recruitment-card" id="recruit">
+            <div class="recruitment-icon">🚀</div>
+            <h2 class="recruitment-title">誠摯邀請您加入我們!</h2>
+            
+
+            <div class="position-list">
+                <div class="position-item">
+                    <div class="position-name">小說部</div>
+                    <div class="position-requirements">
+                        擅長小說撰寫、審稿的人,都歡迎加入我們
+                    </div>
+                </div>
+                <div class="position-item">
+                    <div class="position-name">美工部</div>
+                    <div class="position-requirements">
+                        熟悉 Adobe Photoshop，具備品牌設計與插畫能力
+                    </div>
+                </div>
+                <div class="position-item">
+                    <div class="position-name">剪輯部</div>
+                    <div class="position-requirements">
+                        精通 Adobe Premiere Pro/Final Cut Pro，讓小說變得生動,並讓工作室變得更熠熠生輝
+                    </div>
+					</div>
+					<div class="position-list">
+                <div class="position-item">
+                    <div class="position-name">資安部</div>
+                    <div class="position-requirements">
+                        保護資料安全,防止內部重要文件洩漏
+                    </div>
+                </div>
             </div>
-    </div>
 
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfZLYTvwvVTKaoOlz5X6RDvp9HdW24_uhAWdP4orGq6dzuilA/viewform?usp=sharing&ouid=102753152558729407715" class="cta-button" target="_blank" rel="noopener">
+                立即填寫應徵表單
+            </a>
+            
+            <p class="form-note">
+                表單由 Google Forms 提供，點擊後將在新視窗開啟
+            </p>
+        </section>
+    </main>
 
+    <!-- 頁尾 -->
+    <footer>
+        <p>&copy; 2024 芙憬工作室. All rights reserved.</p>
+        <p style="margin-top: 10px; font-size: 0.85em;">
+            
+        </p>
+    </footer>
 
+    <script>
+        // === 導航列滾動效果 ===
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.apple-navbar');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = scrollTop;
+        });
 
-
-      
+        // === 平滑滾動至招聘區塊 ===
+        document.querySelectorAll('a[href="#recruit"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('recruit').scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
